@@ -25,7 +25,9 @@ body{
   margin-bottom: 10px;
 }
 
-.number-button{
+.number-button,
+.clear-button,
+.equals-button{
   height: 70px;
   width:70px;
   border-radius: 35px;
@@ -38,6 +40,8 @@ body{
 }
 
 .display{
+  display: flex;
+  justify-content: center;
   width: 80%;
   height: 40%;
   border: solid 2px white;
@@ -48,4 +52,10 @@ body{
 .display-div{
   display: flex;
   justify-content: center;
+}
+
+.display-paragraph{
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
 }
