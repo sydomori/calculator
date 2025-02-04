@@ -30,6 +30,21 @@ function divide(num1,num2){
 console.log(divide(2,5));
 
 
+let number1;
+let number2;
+let operator;
+
+function operate(num1,num2,operator){
+ if(operator === '+'){
+  return Add(num1,num2);
+ }else if(operator === '-'){
+  return subtract(num1,num2)
+ }else if(operator === '*'){
+  return multiply(num1,num2)
+ }else if(operator === '/'){
+  return divide(num1,num2);
+ }
+}
 
 
 
