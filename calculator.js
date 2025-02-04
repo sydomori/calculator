@@ -33,6 +33,7 @@ console.log(divide(2,5));
 let number1;
 let number2;
 let operator;
+let isEnteringSecondNumber = false;
 
 function operate(num1,num2,operator){
  if(operator === '+'){
@@ -46,8 +47,53 @@ function operate(num1,num2,operator){
  }
 }
 
+const displayInput = document.querySelector(".display-input");
+console.log(displayInput.value);
 
+const numberButtons = document.querySelectorAll('.number-button');
+numberButtons.forEach((button)=>{
+  button.addEventListener('click',()=>{
+    const value = button.value;
+    if(isEnteringSecondNumber){
+      if(number2 === null || displayInput === "0"){
+        displayInput.value = value;
+      }else{
+        displayInput.value += value;
+      }
+      number2 = parseFloat(displayInput.value);
+      console.log(number2);
+    }else{
+      if(number1 === null || displayInput === "0"){
+        displayInput.value = value;
+      }else{
+        displayInput.value += value;
+      }
+      number1 = parseFloat(displayInput.value);
+      console.log(number1);
+    }
+  });
+});
 
+const operatorButtons = document.querySelectorAll('.operator-button');
+operatorButtons.forEach((button)=>{
+  button.addEventListener('click',()=>{
+    const value = button.value;
+    if(number1 !== null){
+      operator = value;
+      displayInput.value = displayInput.value += value;
+      isEnteringSecondNumber = true;
+      displayInput.value = '';
+    }
+  });
+});
+
+const clearButton = document.querySelector('.clear-button');
+clearButton.addEventListener('click',()=>{
+  displayInput.value = '';
+  number1 = null;
+  number2 = null;
+  isEnteringSecondNumber = false;
+});
 
 
 
