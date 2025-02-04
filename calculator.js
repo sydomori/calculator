@@ -95,6 +95,13 @@ clearButton.addEventListener('click',()=>{
   isEnteringSecondNumber = false;
 });
 
+const equalsButton = document.querySelector('.equals-button');
+equalsButton.addEventListener('click',()=>{
+  let result = operate(number1,number2,operator);
+  displayInput.value = result;
+  number1 = result;
+  isEnteringSecondNumber = true;
+});
 
 
 
