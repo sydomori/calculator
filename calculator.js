@@ -27,22 +27,64 @@ function divide(num1,num2){
  division = num1 /= num2;
  return division;
 }
-divide(2,5);
-console.log(division);
+console.log(divide(2,5));
 
-const displayParagraph = document.querySelector('.display-paragraph');
-let num = '';
+
+const displayInput = document.querySelector('.display-input');
+
+let number;
+let number2;
+let isEnteringSecondNumber = false;
+
 document.querySelectorAll('.number-button').forEach((button)=>{
   button.addEventListener('click',()=>{
-    num = button.value;
-    displayParagraph.innerHTML = displayParagraph.innerHTML += num;
+    number2 = displayInput.value;
+    number = displayInput.value;
+    displayInput.value = displayInput.value += button.value;
+    console.log(number);
+    console.log(number2);
+  });
+});
+
+let operator = '';
+
+document.querySelectorAll('.operator-button').forEach((button)=>{
+  button.addEventListener('click',()=>{
+    operator = button.value;
+    displayInput.value = displayInput.value += operator;
+    console.log(operator);
   });
 });
 
 const clearButton = document.querySelector('.clear-button');
 clearButton.addEventListener('click',()=>{
-  displayParagraph.innerHTML = '';
+  displayInput.value = '';
 });
+
+
+function operate(Num1,Num2,Operator){
+  Num1 = Number(number);
+  Num2 = Number(number2);
+  Operator = operator;
+ if(Operator === '+'){
+  return Add(Num1,Num2);
+ } else if(Operator === '-'){
+  return subtract(Num1,Num2);
+ }else if(Operator === '*'){
+  return multiply(Num1,Num2);
+ }else if(Operator === '/'){
+  return divide(Num1,Num2);
+ }
+}
+
+const equalsButton = document.querySelector('.equals-button');
+equalsButton.addEventListener('click',()=>{
+  result = operate(number,number2,operator);
+  displayInput.value = result;
+});
+
+
+
 
 
 
